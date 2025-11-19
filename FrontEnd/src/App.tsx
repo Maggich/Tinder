@@ -6,7 +6,7 @@ import RegisterForm from './components/registerForm.tsx';
 function App() {
   return (
     <>
-    <RegisterForm/>
+      <RegisterForm/>
     </>
   )
 }

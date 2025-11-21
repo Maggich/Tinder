@@ -1,0 +1,118 @@
+/* Profile Header */
+.profile_header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 24px;
+  flex-wrap: wrap;
+  gap: 16px;
+}
+
+.profile_header h2 {
+  margin: 0;
+}
+
+.edit_profile_btn {
+  padding: 10px 16px;
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-600) 100%);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.edit_profile_btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(91, 59, 230, 0.3);
+}
+
+/* Edit Form */
+.edit_form {
+  max-width: 500px;
+  margin: 24px auto 0;
+  padding: 24px;
+  background: linear-gradient(135deg, rgba(91, 59, 230, 0.05) 0%, rgba(74, 47, 209, 0.02) 100%);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+}
+
+.edit_form .form_group {
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.edit_form label {
+  font-size: 13px;
+  font-weight: 600;
+  color: var(--text);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  margin-bottom: 8px;
+}
+
+.edit_form input {
+  padding: 12px 14px;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  font-size: 14px;
+  background: var(--card);
+  color: var(--text);
+  font-family: inherit;
+  transition: all 0.3s ease;
+  outline: none;
+}
+
+.edit_form input:focus:not(:disabled) {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 3px rgba(91, 59, 230, 0.1);
+  background: var(--bg);
+}
+
+.edit_form input:disabled {
+  background: rgba(0, 0, 0, 0.05);
+  cursor: not-allowed;
+  opacity: 0.7;
+}
+
+.form_buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 24px;
+  justify-content: flex-end;
+}
+
+.btn_cancel,
+.btn_save {
+  padding: 12px 24px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn_cancel {
+  background: rgba(0, 0, 0, 0.05);
+  color: var(--text);
+  border: 1px solid var(--border);
+}
+
+.btn_cancel:hover {
+  background: rgba(0, 0, 0, 0.1);
+  transform: translateY(-2px);
+}
+
+.btn_save {
+  background: linear-gradient(90deg, var(--accent) 0%, var(--accent-600) 100%);
+  color: white;
+}
+
+.btn_save:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 16px rgba(91, 59, 230, 0.3);
+}

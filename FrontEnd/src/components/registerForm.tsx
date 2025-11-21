@@ -1,7 +1,11 @@
 import React, { useState } from 'react';
 import axios from 'axios';
+import './registerForm.css';
+import { useNavigate } from 'react-router-dom';
 
 export default function RegisterForm() {
+    const navigate = useNavigate();
+
     const [username, setUsername] = useState('');
     const [fullname, setFullname] = useState('');
     const [email, setEmail] = useState('');
@@ -33,6 +37,8 @@ export default function RegisterForm() {
             );
 
             setMessage(`Успех! ваш ID: ${res.data.id}`);
+            // navigate to main page after successful registration
+            navigate('/main');
         } catch (error: any) {
             if (error?.response?.data?.detail) {
                 setMessage(`Ошибка: ${error.response.data.detail}`);
@@ -43,49 +49,53 @@ export default function RegisterForm() {
     };
 
     return (
-        <div className="register_container">
-            <h2 className='register_title'>Register</h2>
+        <div className="register_wrapper">
+            <div className="register_container">
+                <h2 className='register_title'>Register</h2>
 
-            <form className='register_form' onSubmit={handleSubmit}>
-                <input
-                    type="text"
-                    placeholder="Username"
-                    className='input_field'
-                    onChange={(e) => setUsername(e.target.value)}
-                />
+                <form className='register_form' onSubmit={handleSubmit}>
+                    <input
+                        type="text"
+                        placeholder="Username"
+                        className='input_field'
+                        onChange={(e) => setUsername(e.target.value)}
+                    />
 
-                <input
-                    type="text"
-                    placeholder="Full name"
-                    className='input_field'
-                    onChange={(e) => setFullname(e.target.value)}
-                />
+                    <input
+                        type="text"
+                        placeholder="Full name"
+                        className='input_field'
+                        onChange={(e) => setFullname(e.target.value)}
+                    />
 
-                <input
-                    type="email"
-                    placeholder="Email"
-                    className='input_field'
-                    onChange={(e) => setEmail(e.target.value)}
-                />
+                    <input
+                        type="email"
+                        placeholder="Email"
+                        className='input_field'
+                        onChange={(e) => setEmail(e.target.value)}
+                    />
 
-                <input
-                    type="password"
-                    placeholder="Password"
-                    className='input_field'
-                    onChange={(e) => setPassword(e.target.value)}
-                />
+                    <input
+                        type="password"
+                        placeholder="Password"
+                        className='input_field'
+                        onChange={(e) => setPassword(e.target.value)}
+                    />
 
-                <input
-                    type="file"
-                    className='input_field'
-                    accept="image/*"
-                    onChange={(e) => setPhoto(e.target.files?.[0] ?? null)}
-                />
+                    <input
+                        type="file"
+                        className='input_field'
+                        accept="image/*"
+                        onChange={(e) => setPhoto(e.target.files?.[0] ?? null)}
+                    />
 
-                <button className='reg-btn'>Register</button>
-            </form>
-
-            {message && <p className='message'>{message}</p>}
+                    <button className='register_btn' type="submit">Register</button>
+                    <p className="login_footer">
+                        Есть аккаунт? <a href="/">Войти</a>
+                    </p>
+                </form>
+                {message && <p className='message'>{message}</p>}
+            </div>
         </div>
     );
 }
